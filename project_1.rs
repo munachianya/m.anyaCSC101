@@ -1,110 +1,131 @@
-use std::io;
-    fn trapiezum (h: f32, b1: f32, b2: f32) {
-    let area1:f32 = (h/2.0) * (b1 + b2);
-    println!("Area of the Trapezium = {}", area1);
-    }
-    fn rhombus (d1: f32, d2: f32){
-    let area2:f32 = 0.5 * d1 * d2;
-    println!("Area of the Rhombus = {}", area2);
-    }
-    fn parallelogram (b: f32, a: f32){
-    let area3:f32 = b * a;
-    println!("Area of the Parallelogram = {}", area3);
-    }
-    fn cube (ls: f32){
-    let area4:f32 = 6.0 * (ls.powf(2.0));
-    println!("Area of Cube = {}", area4);
-    }
-    fn cylinder (r: f32, h1: f32){
-    let pi = std:: f32::consts::PI;
-    let area5:f32 = pi * (r.powf(2.0)) * h1;
-    println!("Volume of Cylinder = {}", area5);
+use std::io::Write;
+
+fn code_7(){
+    let n = vec!["\nName = Aigbona Juliet, ", "\nName = Akpevwe Iloka, "];
+    let d = vec!["\nDepartment = Consulting, ", "\nDepartment = Assurance, "];
+    let q = vec!["\nQualification = B.Sc., ", "\nQualification = HND, "];
+    let c = ["Departmental Services = Analytics consulting services, \n", "Customer experience, \n", "Cybersecurity, strategy, risk, compliance and resilience, \n", 
+    "Digital transformation, \n", "Risk consulting services, \n", "Supply chain and operations, \n", "Technology transformation.\n"];
+    
+    let a = ["Departmental Services = Audit services, \n", "Climate change and sustainability services, \n", "Financial accounting advisory services, \n", 
+    "Forensic and integrity services, \n", "Private client audit experience, \n", "Accounting Link, \n", "Assurance.\n"];
+
+    let mut file = std::fs::File::create("aigbona_juliet.txt").expect("create failed");
+    file.write_all("Welcome to Ernst & Young Global Limited database. \n"
+        .as_bytes()).expect("write failed");
+    file.write_all(n[0].as_bytes()).expect("write failed");
+    file.write_all(d[0].as_bytes()).expect("write failed");
+    file.write_all(q[0].as_bytes()).expect("write failed");
+    for i in 0..7{
+    file.write_all(c[i].as_bytes()).expect("write failed");
     }
 
-fn main() {
-    //user picking which formula to use
-    let mut input0 = String::new();
-    println!("Welcome to User! \nPlease select from the options which pre-made calculator you want.");
-    println!("(1) Trapezium");
-    println!("\n(2) Rhombus");
-    println!("\n(3) Parallelogram");
-    println!("\n(4) Cube");
-    println!("\n(5) Cylinder");
-    io::stdin().read_line(&mut input0).expect("Not a valid string");
-    let function:i32 = input0.trim().parse().expect("Not a valid number");
-    
-    if function == 1 {
-    println!("Calculating the area of a Trapezium");
-    let mut input1 = String::new(); 
-    println!("Input the value of the height:");
-    io::stdin().read_line(&mut input1).expect("Failed to read input");
-    let h:f32 = input1.trim().parse().expect("Invalid input");
-    
-    let mut input2 = String::new(); 
-    println!("Input the value of the 1st base:");
-    io::stdin().read_line(&mut input2).expect("Failed to read input");
-    let b1:f32 = input2.trim().parse().expect("Invalid input");
-    
-    let mut input3 = String::new();
-    println!("Input the value of the 2nd base:");
-    io::stdin().read_line(&mut input3).expect("Failed to read input");
-    let b2:f32 = input3.trim().parse().expect("Invalid input");
-
-    trapiezum(h, b1, b2)
+    let mut file = std::fs::File::create("akpevwe_iloka.txt").expect("create failed");
+    file.write_all("Welcome to Ernst & Young Global Limited database. \n"
+        .as_bytes()).expect("write failed");
+    file.write_all(n[1].as_bytes()).expect("write failed");
+    file.write_all(d[1].as_bytes()).expect("write failed");
+    file.write_all(q[1].as_bytes()).expect("write failed");
+    for i in 0..7{
+    file.write_all(a[i].as_bytes()).expect("write failed");
     }
-    else if function == 2 {
-    println!("Calculating the area of a Rhombus"); 
-    let mut input4 = String::new(); 
-    println!("Input the value of the 1st diagonal:");
-    io::stdin().read_line(&mut input4).expect("Failed to read input");
-    let d1:f32 = input4.trim().parse().expect("Invalid input");
+    println!("Data written to file.");
+}
+
+fn code_8(){
+    let n = vec!["\nName = Adamu Sagamu, ", "\nName = Gbenga Daniels, "];
+    let d = vec!["\nDepartment = Tax, ", "\nDepartment = People and workforce, "];
+    let q = vec!["\nQualification = B.Sc., ", "\nQualification = HND, "];
+    let tx = ["Departmental Services = Tax planning, \n", "Tax function operations, \n", "Tax policy and controversy, \n", 
+    "Global trade, \n", "Tax accounting, \n", "Tax compliance, \n", "Transaction tax.\n"];
     
-    let mut input5 = String::new();
-    println!("Input the value of the 2nd diagonal:");
-    io::stdin().read_line(&mut input5).expect("Failed to read input");
-    let d2:f32 = input5.trim().parse().expect("Invalid input");
+    let p = ["Departmental Services = Change management and experience, \n", "HR transformation, \n", "Integrated workforce mobility, \n", 
+    "Learning and development consulting, \n", "Recognition and reward advisory, \n", "Workforce analytics, \n", "People and workforce.\n"];
 
-    rhombus(d1, d2)
+    let mut file = std::fs::File::create("adamu_sagamu.txt").expect("create failed");
+    file.write_all("Welcome to Ernst & Young Global Limited database. \n"
+        .as_bytes()).expect("write failed");
+    file.write_all(n[0].as_bytes()).expect("write failed");
+    file.write_all(d[0].as_bytes()).expect("write failed");
+    file.write_all(q[0].as_bytes()).expect("write failed");
+    for i in 0..7{
+    file.write_all(tx[i].as_bytes()).expect("write failed");
     }
-    else if function == 3 {
-    println!("Calculating the area of a Parallelogram"); 
-    let mut input6 = String::new(); 
-    println!("Input the value of the base:");
-    io::stdin().read_line(&mut input6).expect("Failed to read input");
-    let b:f32 = input6.trim().parse().expect("Invalid input");
+
+    let mut file = std::fs::File::create("gbenga_daniels.txt").expect("create failed");
+    file.write_all("Welcome to Ernst & Young Global Limited database. \n"
+        .as_bytes()).expect("write failed");
+    file.write_all(n[1].as_bytes()).expect("write failed");
+    file.write_all(d[1].as_bytes()).expect("write failed");
+    file.write_all(q[1].as_bytes()).expect("write failed");
+    for i in 0..7{
+    file.write_all(p[i].as_bytes()).expect("write failed");
+    }
+    println!("Data written to file.");
+}
+
+fn code_9(){
+    let n = vec!["\nName = Ehis Ero, ", "\nName = Maria Akinsola, "];
+    let d = vec!["\nDepartment = Strategy, ", "\nDepartment = Transactions and corporate finance, "];
+    let q = vec!["\nQualification = M.Sc., ", "\nQualification = M.Sc., "];
+    let s = ["Departmental Services = Strategy consulting, \n", "Corporate and growth strategy, \n", "Transaction strategy and execution, \n", 
+    "Restructuring and turnaround strategy, \n", "Industry strategy, \n", "Digital business building, \n", "Commercial strategy.\n"];
     
-    let mut input7 = String::new();
-    println!("Input the value of the altitude:");
-    io::stdin().read_line(&mut input7).expect("Failed to read input");
-    let a:f32 = input7.trim().parse().expect("Invalid input");
+    let tc = ["Departmental Services = Corporate finance, \n", "Divestment and carve-outs, \n", "Sustainability and ESG Services, \n", 
+    "M&A advisory, \n", "M&A integration, \n", "M&A technology and tools, \n", "M&A advanced analytics.\n"];
 
-    parallelogram(a, b)
+    let mut file = std::fs::File::create("ehis_ero.txt").expect("create failed");
+    file.write_all("Welcome to Ernst & Young Global Limited database. \n"
+        .as_bytes()).expect("write failed");
+    file.write_all(n[0].as_bytes()).expect("write failed");
+    file.write_all(d[0].as_bytes()).expect("write failed");
+    file.write_all(q[0].as_bytes()).expect("write failed");
+    for i in 0..7{
+    file.write_all(s[i].as_bytes()).expect("write failed");
     }
-    else if function == 4 {
-    println!("Calculating the area of a Cube"); 
-    let mut input8 = String::new(); 
-    println!("Input the value of the length of the side:");
-    io::stdin().read_line(&mut input8).expect("Failed to read input");
-    let ls:f32 = input8.trim().parse().expect("Invalid input");
 
-    cube(ls);
+    let mut file = std::fs::File::create("maria_akinsola.txt").expect("create failed");
+    file.write_all("Welcome to Ernst & Young Global Limited database. \n"
+        .as_bytes()).expect("write failed");
+    file.write_all(n[1].as_bytes()).expect("write failed");
+    file.write_all(d[1].as_bytes()).expect("write failed");
+    file.write_all(q[1].as_bytes()).expect("write failed");
+    for i in 0..7{
+    file.write_all(tc[i].as_bytes()).expect("write failed");
     }
-    else if function == 5 {
-    println!("Calculating the area of a Cylinder"); 
-    let mut input9 = String::new(); 
-    println!("Input the value of the radius:");
-    io::stdin().read_line(&mut input9).expect("Failed to read input");
-    let r:f32 = input9.trim().parse().expect("Invalid input");
+    println!("Data written to file.");
+}
     
-    let mut input10 = String::new();
-    println!("Input the value of the height:");
-    io::stdin().read_line(&mut input10).expect("Failed to read input");
-    let h1:f32 = input10.trim().parse().expect("Invalid input");
-
-    cylinder(r, h1)  
+fn main(){
+    let mut input1 = String::new();
+    println!("Welcome to Ernst & Young Global Limited database");
+    println!("Enter a value of code between (7 - 9)");
+    std::io::stdin().read_line(&mut input1).expect("Failed to read input");
+    let code:char = input1.trim().parse().expect("Invalid Input");
+    if code == '7' {
+        code_7();
+    }
+    else if code == '8'{
+        code_8();
+    }
+    else if code == '9' {
+        code_9();
     }
     else {
-        println!("Please pick a number from the available options");
+        println!("Wrong input! Please Pick a value from (7 - 9)");
+        return;
     }
-
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
