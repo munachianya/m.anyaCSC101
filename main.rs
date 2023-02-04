@@ -1,21 +1,22 @@
 fn main() {
-    // addition
-    let sum = 5550 + 7310;
-    println!("The sum of 5550 and 7310 = {}", sum);
+    let n1 = "Electrical".to_string();
+    let n2 = "Electronic" .to_string();
+    let n3 = "Engineering" .to_string();
+    let n4 = n1+ &n2 + &n3; // n2 & n3 reference is passed
 
-    //subtraction
-    let difference:f32 = 99.5 - 4.3; 
-    println!("The difference of 95.5 and 4.3 = {}", difference );
+    // about electrical/electronic");
+    println!("\n The {} is informed by the aspiration to train
+     electrical/electronic engineering professionals in the areas of design, 
+     building and maintenance of electrical control systems,", n4);
 
-    //multiplication
-    let product:u32 = 4 * 30;
-    println!("The multiple of 4 and 30 ={}",product );
-
-    // division 
-    let quotient = 56.7 / 32.2;
-    println!("The division of 56.7 and 32.2 = {}", quotient );
-
-    //remainder
-    let remainder = 43 % 5;
-    println!("The remainder of 43 and 5 = {}", remainder );
+    let w1 = "Computer".to_string();
+    let w2 ="Science ".to_string();
+    let w3 = w1 + &w2;  // w2 reference is passed 
+    println!();
+    println!("{} is aimed at developing competent, 
+        creative, innovative, entrepreneurial and ethically-minded persons, 
+        capable of creating value in the diverse fields of Computer Science.", w3 );
 }
+
+   
+
