@@ -1,16 +1,10 @@
+use std::fs::OpenOptions;
+use std::io::Write;
+
 fn main() {
-
-    // mutable array
-    let mut colors = ["red", "green", "yellow", "white"];
-    println!("\nOriginal array = {:?}", colors);
-
-    //mutable slice
-    let sliced_colors = &mut colors[1..3];
-
-    println!("First slice = {:?}", sliced_colors);
-
-    //change the value of the original slice at the first index
-    sliced_colors[1] = "purple";
-
-    println!("Changed slice = {:?}", sliced_colors);
+    let mut file = OpenOptions::new().append(true).open("data.txt").expect("cannot open file");
+    file.write_all("\nHello Class ".as_bytes()).expect("write failed");
+    file.write_all("\nThis is the appendage to the document."
+        .as_bytes()).expect("write failed");
+    println!("file append success");
 }
