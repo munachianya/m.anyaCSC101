@@ -1,13 +1,11 @@
-fn main() {
-    let mut count = 0;
+// The iter() function values of all elements in an array.
 
-    for num in 1..21 {
-        if num > 10 {
-            println!("{:?}",num);
-            continue;
-        }
-        count+=1;
+fn main() {
+    let arr:[i32;4] = [10,20,30,40];
+    println!("array is {:?}",arr);
+    println!("array size is :{}",arr.len());
+
+    for val in arr.iter(){
+        println!("value is: {}",val);
     }
-    println!(" The count of values greater than 10 (between 1 and 20) is: {} ",count);
-    //outputs 10
 }
